@@ -22,6 +22,7 @@
 		AD5753571ACC6B5C00DB61F3 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5753561ACC6B5C00DB61F3 /* LoginService.swift */; };
 		AD5753591ACDAE6B00DB61F3 /* TweetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5753581ACDAE6B00DB61F3 /* TweetTableViewCell.swift */; };
 		AD57535B1ACDB85E00DB61F3 /* TweetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD57535A1ACDB85E00DB61F3 /* TweetDetailViewController.swift */; };
+		AD7F32041AD1340A00FE4C53 /* UserTimelineTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7F32031AD1340A00FE4C53 /* UserTimelineTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		AD5753561ACC6B5C00DB61F3 /* LoginService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		AD5753581ACDAE6B00DB61F3 /* TweetTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetTableViewCell.swift; sourceTree = "<group>"; };
 		AD57535A1ACDB85E00DB61F3 /* TweetDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetDetailViewController.swift; sourceTree = "<group>"; };
+		AD7F32031AD1340A00FE4C53 /* UserTimelineTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTimelineTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 			children = (
 				AD0DEEDA1AC9E76E005A6E6D /* HomeTimelineViewController.swift */,
 				AD57535A1ACDB85E00DB61F3 /* TweetDetailViewController.swift */,
+				AD7F32031AD1340A00FE4C53 /* UserTimelineTableViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD0DEEDF1AC9E932005A6E6D /* TweetJSONParser.swift in Sources */,
+				AD7F32041AD1340A00FE4C53 /* UserTimelineTableViewController.swift in Sources */,
 				AD5753571ACC6B5C00DB61F3 /* LoginService.swift in Sources */,
 				AD42FA281ACDE869008EB68E /* ImageService.swift in Sources */,
 				AD0DEEDD1AC9E923005A6E6D /* Tweet.swift in Sources */,

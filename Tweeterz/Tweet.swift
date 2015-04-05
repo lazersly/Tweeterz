@@ -11,6 +11,7 @@ import UIKit
 class Tweet {
   
   var id : String?
+  var userID : String?
   var text : String?
   var userName: String?
   var profileImage : UIImage?

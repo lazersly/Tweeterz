@@ -86,6 +86,7 @@
                                 </state>
                                 <connections>
                                     <action selector="clickedProfileImageButton:" destination="g6m-6B-coz" eventType="touchUpInside" id="60Z-Lu-E2F"/>
+                                    <segue destination="GS5-cB-615" kind="show" id="EaN-IN-2Vk"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Created On Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6bR-IL-CT4">
@@ -140,6 +141,74 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w10-h1-rpW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2015" y="285"/>
+        </scene>
+        <!--User Timeline Table View Controller-->
+        <scene sceneID="2XK-uF-z6p">
+            <objects>
+                <tableViewController id="GS5-cB-615" customClass="UserTimelineTableViewController" customModule="Tweeterz" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="HTK-QN-KqI">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="Xiw-l6-kQh">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="150"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cee-DZ-ss3">
+                                    <rect key="frame" x="260" y="0.0" width="80" height="80"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="80" id="3RG-mC-gwS"/>
+                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="UF3-Yg-JM5"/>
+                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="Zxh-xT-YCv"/>
+                                        <constraint firstAttribute="width" constant="80" id="dGd-db-XFZ"/>
+                                    </constraints>
+                                    <state key="normal">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="orL-7L-SUj">
+                                    <rect key="frame" x="8" y="121" width="584" height="21"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G9D-GH-bAk">
+                                    <rect key="frame" x="8" y="88" width="584" height="21"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="cee-DZ-ss3" firstAttribute="leading" secondItem="Xiw-l6-kQh" secondAttribute="leading" constant="260" id="0ic-Az-hgn"/>
+                                <constraint firstAttribute="trailing" secondItem="cee-DZ-ss3" secondAttribute="trailing" constant="260" id="40C-p1-xpc"/>
+                                <constraint firstItem="G9D-GH-bAk" firstAttribute="top" secondItem="cee-DZ-ss3" secondAttribute="bottom" constant="8" id="Fsl-nx-pdk"/>
+                                <constraint firstAttribute="bottom" secondItem="orL-7L-SUj" secondAttribute="bottom" constant="8" id="I6c-df-BxD"/>
+                                <constraint firstItem="G9D-GH-bAk" firstAttribute="top" secondItem="cee-DZ-ss3" secondAttribute="bottom" constant="8" id="L9k-yp-wMq"/>
+                                <constraint firstItem="orL-7L-SUj" firstAttribute="leading" secondItem="Xiw-l6-kQh" secondAttribute="leading" constant="8" id="LwJ-Jg-Kxc"/>
+                                <constraint firstAttribute="trailing" secondItem="G9D-GH-bAk" secondAttribute="trailing" constant="8" id="QIe-hl-lvi"/>
+                                <constraint firstItem="cee-DZ-ss3" firstAttribute="top" secondItem="Xiw-l6-kQh" secondAttribute="top" id="Qer-bZ-0Xb"/>
+                                <constraint firstItem="orL-7L-SUj" firstAttribute="top" secondItem="G9D-GH-bAk" secondAttribute="bottom" constant="12" id="SQS-ag-L96"/>
+                                <constraint firstItem="G9D-GH-bAk" firstAttribute="leading" secondItem="Xiw-l6-kQh" secondAttribute="leading" constant="8" id="Sc0-af-TXA"/>
+                                <constraint firstAttribute="trailing" secondItem="orL-7L-SUj" secondAttribute="trailing" constant="8" id="lDq-ce-qCW"/>
+                            </constraints>
+                        </view>
+                        <connections>
+                            <outlet property="dataSource" destination="GS5-cB-615" id="VyZ-o7-nl1"/>
+                            <outlet property="delegate" destination="GS5-cB-615" id="RKQ-2u-1jn"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="locationLabel" destination="orL-7L-SUj" id="NF3-Bp-yir"/>
+                        <outlet property="nameLabel" destination="G9D-GH-bAk" id="uLr-Cd-jnf"/>
+                        <outlet property="tableHeaderView" destination="Xiw-l6-kQh" id="YCT-fF-iTd"/>
+                        <outlet property="userProfileImageButton" destination="cee-DZ-ss3" id="SNs-1W-cBV"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vhh-cn-r2c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2731" y="285"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cO9-EE-b4O">

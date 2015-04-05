@@ -69,6 +69,9 @@ class TweetJSONParser {
       if let userName = userInfo[userNameKey] as? NSString {
         tweet.userName = userName
       }
+      if let userID = userInfo[idkey] as? NSString {
+        tweet.userID = userID
+      }
       if let imageURL = userInfo[userImageKey] as? NSString {
         tweet.profileImageURL = imageURL
       }
