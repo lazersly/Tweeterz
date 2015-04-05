@@ -19,6 +19,13 @@ class TweetJSONParser {
     } else {return nil}
   }
   
+  class func tweetInfoFromJSONData(data: NSData) -> Tweet? {
+    var error : NSError?
+    if let jsonObject = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &error) as? [String : AnyObject] {
+      return self.createTweetFromJSONObjectInfo(jsonObject)
+    } else {return nil}
+  }
+  
   // Helper parser method builds an array of tweets or returns nil if there are no tweets
   private class func parseJSON(json : [[String : AnyObject]]) -> [Tweet]? {
     
@@ -38,21 +45,46 @@ class TweetJSONParser {
   private class func createTweetFromJSONObjectInfo(jsonObject : [String : AnyObject]) -> Tweet {
     
     // JSON key names
+    let idKey = "id_str"
     let textKey = "text"
     let userContainerKey = "user"
     let userNameKey = "name"
+    let retweetCountKey = "retweet_count"
+    let favoritesCountKey = "favorite_count"
+    let createdAtKey = "created_at"
+    let userImageKey = "profile_image_url"
     
     var tweet = Tweet()
     
+    if let id = jsonObject[idKey] as? NSString {
+      println(id)
+      tweet.id = id
+    }
+    
     if let text = jsonObject[textKey] as? NSString {
-      println(text)
-      tweet.text = text;
+      tweet.text = text
     }
     
     if let userInfo = jsonObject[userContainerKey] as? [String : AnyObject] {
       if let userName = userInfo[userNameKey] as? NSString {
         tweet.userName = userName
       }
+      if let imageURL = userInfo[userImageKey] as? NSString {
+        tweet.profileImageURL = imageURL
+      }
+    }
+    
+    if let retweetCount = jsonObject[retweetCountKey] as? NSNumber {
+      tweet.retweetCount = "\(retweetCount)"
+    }
+    
+    if let favoritesCount = jsonObject[favoritesCountKey] as? NSNumber {
+      tweet.favoritesCount = "\(favoritesCount)"
+    }
+    
+    if let createdAt = jsonObject[createdAtKey] as? NSString {
+      println(createdAt)
+      tweet.createdAt = createdAt
     }
     
     return tweet

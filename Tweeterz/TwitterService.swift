@@ -25,7 +25,7 @@ class TwitterService {
     let requestURL = NSURL(string: homeTimelineURL)
     
     // Create an SLRequest with the service type, HTTP method type, and URL
-    let twitterRequest = SLRequest(forServiceType: ACAccountTypeIdentifierTwitter, requestMethod: SLRequestMethod.GET, URL: requestURL, parameters: nil)
+    let twitterRequest = SLRequest(forServiceType: SLServiceTypeTwitter, requestMethod: SLRequestMethod.GET, URL: requestURL, parameters: nil)
     
     // Assign the account we want to fetch in the request
     twitterRequest.account = twitterAccount
@@ -57,5 +57,48 @@ class TwitterService {
         })
       }
     }
+  }
+  
+  let detailURL = "https://api.twitter.com/1.1/statuses/show.json?id=" // must appeand ID
+  
+  func fetchTweetInfoForTweet(tweet : Tweet, completionHandler : (Tweet?, String?) -> Void) {
+    if let tweetID = tweet.id? {
+      let fullURL = NSURL(string: detailURL + tweetID)
+      let request = SLRequest(forServiceType: SLServiceTypeTwitter, requestMethod: SLRequestMethod.GET, URL: fullURL, parameters: nil)
+      request.account = self.twitterAccount
+      
+      request.performRequestWithHandler { (data, response, error) -> Void in
+        
+        println("data: \(data)")
+        println("response: \(response)")
+        println("error: \(error)")
+        
+        if error != nil {
+          // There was an error.  Handle it.
+        } else {
+          var errorDescription : String?
+          var tweet : Tweet?
+          
+          switch response.statusCode {
+            case 200...299:
+              tweet = TweetJSONParser.tweetInfoFromJSONData(data)!
+            case 300...399:
+              errorDescription = "No new data was returned"
+            case 400...499:
+              errorDescription = "Bad request or incorrect credentials"
+            case 500...599:
+              errorDescription = "An error occurred, please try again later"
+            default:
+              errorDescription = "An unknown error occurred"
+          }
+          println(tweet)
+          NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
+            completionHandler(tweet, errorDescription)
+          }
+        }
+      }
+    }
+
+    
   }
 }

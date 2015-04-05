@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>50D36156-84C9-43E5-B3EA-8E38811FAE76</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Tweeterz</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>3B1FB820B33A72BCC2D7427C28A0F94A2BECF6A1</key>
+		<string>https://github.com/lazersly/Tweeterz.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Tweeterz.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>3B1FB820B33A72BCC2D7427C28A0F94A2BECF6A1</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/lazersly/Tweeterz.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>3B1FB820B33A72BCC2D7427C28A0F94A2BECF6A1</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>3B1FB820B33A72BCC2D7427C28A0F94A2BECF6A1</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Tweeterz</string>
+		</dict>
+	</array>
+</dict>
+</plist>
