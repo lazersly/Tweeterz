@@ -70,7 +70,7 @@ class HomeTimelineViewController: UIViewController, UITableViewDataSource, UITab
     // set the label to nil so we don't see the reused label if it's not overwritten
     cell.userLabel.text = nil
     cell.tweetLabel.text = nil
-    cell.profileImageView = nil
+    cell.profileImageView.image = nil
     
     if let tweet = self.tweets?[indexPath.row] {
       cell.userLabel.text = tweet.userName
@@ -81,9 +81,7 @@ class HomeTimelineViewController: UIViewController, UITableViewDataSource, UITab
       } else {
         self.imageService.fetchImageAtURL(tweet.profileImageURL!, completionHandler: { [weak self] (fetchedImage) -> Void in
           tweet.profileImage = fetchedImage
-          if tag == cell.tag {
-            cell.profileImageView.image = tweet.profileImage
-          }
+          cell.profileImageView.image = fetchedImage
         })
       }
     }
