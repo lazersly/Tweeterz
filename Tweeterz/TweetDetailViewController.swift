@@ -55,6 +55,10 @@ class TweetDetailViewController: UIViewController {
   }
 
   @IBAction func clickedProfileImageButton(sender: AnyObject) {
+    if let newVC = self.storyboard?.instantiateViewControllerWithIdentifier("UserTimelineTableView") as? UserTimelineTableViewController {
+      newVC.selectedTweet = self.selectedTweet
+      self.navigationController?.pushViewController(newVC, animated: true)
+    }
     
   }
 

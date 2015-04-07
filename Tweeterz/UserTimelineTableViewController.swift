@@ -15,11 +15,16 @@ class UserTimelineTableViewController: UITableViewController {
   @IBOutlet var locationLabel: UILabel!
   @IBOutlet var tableHeaderView: UIView!
   var selectedTweet : Tweet!
+  var tweets : [Tweet]?
   
     override func viewDidLoad() {
         super.viewDidLoad()
       
+      // Access twitter account and download the information for the selectedUserID
       
+      self.nameLabel.text = self.selectedTweet.userName
+      self.locationLabel.text = self.selectedTweet.location
+      self.userProfileImageButton.setBackgroundImage(self.selectedTweet.profileImage, forState: UIControlState.Normal)
     }
 
     // MARK: - Table view data source

@@ -17,6 +17,11 @@ class TweetTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+      
+      // Clear default labels in IB
+      self.userLabel.text = nil
+      self.tweetLabel.text = nil
+      self.profileImageView.image = nil
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

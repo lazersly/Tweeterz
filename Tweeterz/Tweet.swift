@@ -19,6 +19,7 @@ class Tweet {
   var retweetCount: String?
   var favoritesCount: String?
   var createdAt: String?
+  var location: String?
   
   // Generic initializer
   init() {

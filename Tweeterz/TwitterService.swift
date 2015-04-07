@@ -12,12 +12,12 @@ import Social
 
 class TwitterService {
   
-  // Generic init
-  init () {}
-  
   // Instance variables
   let homeTimelineURL = "https://api.twitter.com/1.1/statuses/home_timeline.json"
   var twitterAccount : ACAccount?
+  
+  // Generic init
+  init () {}
   
   func fetchTwitterHomeTimeline(completionHandler : ([Tweet]?, String?) -> Void) {
     
@@ -98,7 +98,24 @@ class TwitterService {
         }
       }
     }
-
+  }
+  
+  let userTimelineURLRequestURL = "https://api.twitter.com/1.1/statuses/user_timeline.json?username="
+  
+  func fetchUserTimeline(userID: String, completionHandler : ([Tweet]?, String?) -> Void) {
+    let fullURL = NSURL(string: userTimelineURLRequestURL + userID)
+    let request = SLRequest(forServiceType: SLServiceTypeTwitter, requestMethod: SLRequestMethod.GET, URL: fullURL, parameters: nil)
+    
+    request.account = self.twitterAccount
+    
+    request.performRequestWithHandler { (data, response, error) -> Void in
+      if error != nil {
+        //There was an error, handle it
+      } else {
+        // No error
+        
+      }
+    }
     
   }
 }

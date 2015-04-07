@@ -53,11 +53,12 @@ class TweetJSONParser {
     let favoritesCountKey = "favorite_count"
     let createdAtKey = "created_at"
     let userImageKey = "profile_image_url"
+    let locationKey = "location"
     
     var tweet = Tweet()
     
     if let id = jsonObject[idKey] as? NSString {
-      println(id)
+//      println(id)
       tweet.id = id
     }
     
@@ -69,11 +70,14 @@ class TweetJSONParser {
       if let userName = userInfo[userNameKey] as? NSString {
         tweet.userName = userName
       }
-      if let userID = userInfo[idkey] as? NSString {
+      if let userID = userInfo[idKey] as? NSString {
         tweet.userID = userID
       }
       if let imageURL = userInfo[userImageKey] as? NSString {
         tweet.profileImageURL = imageURL
+      }
+      if let location = userInfo[locationKey] as? NSString {
+        tweet.location = location
       }
     }
     
@@ -86,7 +90,10 @@ class TweetJSONParser {
     }
     
     if let createdAt = jsonObject[createdAtKey] as? NSString {
-      println(createdAt)
+//      let dateFormatter = NSDateFormatter()
+//      let date = dateFormatter.dateFromString(createdAt)
+//      println(createdAt)
+      
       tweet.createdAt = createdAt
     }
     
