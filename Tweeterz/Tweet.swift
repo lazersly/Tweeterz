@@ -16,10 +16,13 @@ class Tweet {
   var userName: String?
   var profileImage : UIImage?
   var profileImageURL : String?
+  var backgroundImage : UIImage?
+  var backgroundImageURL : String?
   var retweetCount: String?
   var favoritesCount: String?
   var createdAt: String?
   var location: String?
+  var screenName: String?
   
   // Generic initializer
   init() {

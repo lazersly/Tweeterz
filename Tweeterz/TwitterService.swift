@@ -100,10 +100,10 @@ class TwitterService {
     }
   }
   
-  let userTimelineURLRequestURL = "https://api.twitter.com/1.1/statuses/user_timeline.json?username="
+  let userTimelineURLRequestURL = "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name="
   
-  func fetchUserTimeline(userID: String, completionHandler : ([Tweet]?, String?) -> Void) {
-    let fullURL = NSURL(string: userTimelineURLRequestURL + userID)
+  func fetchUserTimeline(screenName: String, completionHandler : ([Tweet]?, String?) -> Void) {
+    let fullURL = NSURL(string: userTimelineURLRequestURL + screenName)
     let request = SLRequest(forServiceType: SLServiceTypeTwitter, requestMethod: SLRequestMethod.GET, URL: fullURL, parameters: nil)
     
     request.account = self.twitterAccount
@@ -113,6 +113,27 @@ class TwitterService {
         //There was an error, handle it
       } else {
         // No error
+        var errorDescription : String?
+        var tweets = [Tweet]()
+        
+        // There was not an error with the connection, check the status of the response and handle accordingly
+        switch response.statusCode {
+        case 200...299:
+          tweets = TweetJSONParser.tweetsFromJSONData(data)!
+        case 300...399:
+          errorDescription = "No new data was returned"
+        case 400...499:
+          errorDescription = "Bad request or incorrect credentials"
+        case 500...599:
+          errorDescription = "An error occurred, please try again later"
+        default:
+          errorDescription = "An unknown error occurred"
+        }
+        
+        NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+          completionHandler(tweets, errorDescription)
+        })
+
         
       }
     }

@@ -52,8 +52,10 @@ class TweetJSONParser {
     let retweetCountKey = "retweet_count"
     let favoritesCountKey = "favorite_count"
     let createdAtKey = "created_at"
-    let userImageKey = "profile_image_url"
+    let userImageUrlKey = "profile_image_url"
+    let backgroundImageUrlKey = "profile_background_image_url"
     let locationKey = "location"
+    let screenNameKey = "screen_name"
     
     var tweet = Tweet()
     
@@ -73,11 +75,17 @@ class TweetJSONParser {
       if let userID = userInfo[idKey] as? NSString {
         tweet.userID = userID
       }
-      if let imageURL = userInfo[userImageKey] as? NSString {
+      if let imageURL = userInfo[userImageUrlKey] as? NSString {
         tweet.profileImageURL = imageURL
+      }
+      if let backgroundURL = userInfo[backgroundImageUrlKey] as? String {
+        tweet.backgroundImageURL = backgroundURL
       }
       if let location = userInfo[locationKey] as? NSString {
         tweet.location = location
+      }
+      if let screenName = userInfo[screenNameKey] as? String {
+        tweet.screenName = screenName
       }
     }
     
